@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct SpeakAboutItApp: App {
+    
+    @StateObject var viewRouter = TabBarViewRouter()
+    
     var body: some Scene {
         WindowGroup {
-            HomeContentView()
+            HomeContentView(viewRouter: viewRouter)
         }
     }
 }

@@ -11,6 +11,7 @@
 		A56EF64D289D021400DC1F00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A56EF64C289D021400DC1F00 /* Assets.xcassets */; };
 		A56EF650289D021400DC1F00 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A56EF64F289D021400DC1F00 /* Preview Assets.xcassets */; };
 		A58AD93D289E6443002005F2 /* HomeContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58AD93C289E6443002005F2 /* HomeContentView.swift */; };
+		A5D29DCA28A19CEB00FDC7E6 /* TabBarViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D29DC928A19CEB00FDC7E6 /* TabBarViewRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		A56EF64C289D021400DC1F00 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A56EF64F289D021400DC1F00 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A58AD93C289E6443002005F2 /* HomeContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContentView.swift; sourceTree = "<group>"; };
+		A5D29DC928A19CEB00FDC7E6 /* TabBarViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				A58AD93B289E63FF002005F2 /* Views */,
 				A56EF648289D021200DC1F00 /* SpeakAboutItApp.swift */,
+				A5D29DC928A19CEB00FDC7E6 /* TabBarViewRouter.swift */,
 				A56EF64C289D021400DC1F00 /* Assets.xcassets */,
 				A56EF64E289D021400DC1F00 /* Preview Content */,
 			);
@@ -145,6 +148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5D29DCA28A19CEB00FDC7E6 /* TabBarViewRouter.swift in Sources */,
 				A58AD93D289E6443002005F2 /* HomeContentView.swift in Sources */,
 				A56EF649289D021200DC1F00 /* SpeakAboutItApp.swift in Sources */,
 			);

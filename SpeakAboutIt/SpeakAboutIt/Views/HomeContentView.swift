@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct HomeContentView: View {
+    
+    @StateObject var viewRouter: TabBarViewRouter
+    
     var body: some View {
         GeometryReader { geometry in
             VStack {
@@ -15,13 +18,22 @@ struct HomeContentView: View {
                 let tabBarHeight = geometry.size.height/28
                 
                 Spacer()
-                Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+                switch viewRouter.currentPage {
+                 case .home:
+                     Text("Home")
+                 case .explore:
+                     Text("Explore")
+                 case .discuss:
+                     Text("Discuss")
+                 case .more:
+                     Text("More")
+                }
                 Spacer()
                 
                 // Tab Bar
                 HStack {
-                    TabBarIcon(width: tabBarWidth, height: tabBarHeight, systemIconName: "house", tabName: "Home")
-                    TabBarIcon(width: tabBarWidth, height: tabBarHeight, systemIconName: "safari", tabName: "Explore")
+                    TabBarIcon(viewRouter: viewRouter, assignedPage: .home, width: tabBarWidth, height: tabBarHeight, systemIconName: "house", tabName: "Home")
+                    TabBarIcon(viewRouter: viewRouter, assignedPage: .explore, width: tabBarWidth, height: tabBarHeight, systemIconName: "safari", tabName: "Explore")
                     ZStack {
                         Circle()
                             .foregroundColor(.black)
@@ -38,8 +50,8 @@ struct HomeContentView: View {
 //                        TabBarIcon(width: tabBarWidth, height: tabBarHeight, systemIconName: "bubble.left.fill", tabName: "")
                     }
                     .offset(y: -geometry.size.height/8/2)
-                    TabBarIcon(width: tabBarWidth, height: tabBarHeight, systemIconName: "lightbulb", tabName: "Discuss")
-                    TabBarIcon(width: tabBarWidth, height: tabBarHeight, systemIconName: "square.grid.2x2", tabName: "More")
+                    TabBarIcon(viewRouter: viewRouter, assignedPage: .discuss, width: tabBarWidth, height: tabBarHeight, systemIconName: "lightbulb", tabName: "Discuss")
+                    TabBarIcon(viewRouter: viewRouter, assignedPage: .more, width: tabBarWidth, height: tabBarHeight, systemIconName: "square.grid.2x2", tabName: "More")
                 }.frame(width: geometry.size.width, height: geometry.size.height/8)
                     .background(Color("TabBarBackground").shadow(radius: 2))
             }
@@ -51,15 +63,18 @@ struct HomeContentView: View {
 struct HomeContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            HomeContentView()
+            HomeContentView(viewRouter: TabBarViewRouter())
                 .preferredColorScheme(.dark)
-            HomeContentView()
+            HomeContentView(viewRouter: TabBarViewRouter())
                 .preferredColorScheme(.light)
         }
     }
 }
 
 struct TabBarIcon: View {
+    
+    @StateObject var viewRouter: TabBarViewRouter
+    let assignedPage: Page
     
     let width, height: CGFloat
     let systemIconName, tabName: String
@@ -74,6 +89,10 @@ struct TabBarIcon: View {
                 .font(.footnote).bold()
         }
         .padding(.horizontal, -4)
+        .foregroundColor(viewRouter.currentPage == assignedPage ? Color("TabBarHighlight") : .gray)
+        .onTapGesture {
+            viewRouter.currentPage = assignedPage
+        }
     }
 }
 
