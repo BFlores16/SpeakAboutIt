@@ -10,6 +10,7 @@ import SwiftUI
 struct TabBarContentView: View {
     
     @State var selectedIndex: Int = 0
+    @State var showSpeakAboutItMenu = false
     @ViewBuilder
     func getTabView(type: TabType) -> some View {
         switch type {
@@ -33,26 +34,39 @@ struct TabBarContentView: View {
                 let tabBarWidth = geometry.size.width/5
                 let tabBarHeight = geometry.size.height/28
                 
+                // Tab Buttons
                 ZStack(alignment: .bottom) {
-                    TabItemPageView(height: tabBarHeight, width: tabBarWidth, tabs: TabType.allCases.map({ $0.tabItem}), selectedIndex: $selectedIndex) { index in
+                    TabItemPageView(height: tabBarHeight, width: tabBarWidth, tabs: TabType.allCases.map({ $0.tabItem}), selectedIndex: $selectedIndex, showSpeakAboutItMenu: $showSpeakAboutItMenu) { index in
                         let type = TabType(rawValue: index) ?? .home
                         getTabView(type: type)
                     }
+                    // Speak About It Button
                     ZStack {
-                        Circle()
-                            .foregroundColor(.black)
-                            .frame(width: geometry.size.width/6, height: geometry.size.width/6)
-                            .shadow(radius: 4)
-                        Circle()
-                            .foregroundColor(Color.UI.SpeakAboutItYellow)
-                            .frame(width: geometry.size.width/6.5, height: geometry.size.width/6.5)
-                            .shadow(radius: 4)
-                        Image("Logo")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: geometry.size.width/8-6, height: geometry.size.width/8-6)
+                        if showSpeakAboutItMenu {
+                            SpeakAboutItButtonMenu(widthAndHeight: geometry.size.width/7)
+                                .offset(y: -geometry.size.height/6)
+                        }
+                        ZStack {
+                            Circle()
+                                .foregroundColor(.black)
+                                .frame(width: geometry.size.width/6, height: geometry.size.width/6)
+                                .shadow(radius: 4)
+                            Circle()
+                                .foregroundColor(Color.UI.SpeakAboutItYellow)
+                                .frame(width: geometry.size.width/6.5, height: geometry.size.width/6.5)
+                                .shadow(radius: 4)
+                            Image("Logo")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: geometry.size.width/8-6, height: geometry.size.width/8-6)
+                        }
+                        .offset(y: -geometry.size.height/8/2)
+                        .onTapGesture {
+                            withAnimation {
+                                showSpeakAboutItMenu.toggle()
+                            }
+                        }
                     }
-                    .offset(y: -geometry.size.height/8/2)
                 }
             }
         }
@@ -102,6 +116,7 @@ struct TabBarView: View {
     var h: CGFloat = 70
     var w: CGFloat = UIScreen.main.bounds.width - 16
     @Binding var selectedTabIndex: Int
+    @Binding var showSpeakAboutItMenu: Bool
     
     var body: some View {
         HStack {
@@ -118,6 +133,11 @@ struct TabBarView: View {
                     let item = tabBarItems[index]
                     Button {
                         self.selectedTabIndex = index
+                        if showSpeakAboutItMenu {
+                            withAnimation {
+                                showSpeakAboutItMenu.toggle()
+                            }
+                        }
                     } label: {
                         let isSelected = selectedTabIndex == index
                         TabItemView(width: width, height: height, data: item, isSelected: isSelected)
@@ -138,6 +158,7 @@ struct TabItemPageView<Content: View>: View {
     let height, width : CGFloat
     let tabs: [TabItemData]
     @Binding var selectedIndex: Int
+    @Binding var showSpeakAboutItMenu: Bool
     @ViewBuilder let content: (Int) -> Content
     
     var body: some View {
@@ -150,11 +171,52 @@ struct TabItemPageView<Content: View>: View {
             }
             VStack {
                 Spacer()
-                TabBarView(height: height, width: width, tabBarItems: tabs, selectedTabIndex: $selectedIndex)
+                TabBarView(height: height, width: width, tabBarItems: tabs, selectedTabIndex: $selectedIndex, showSpeakAboutItMenu: $showSpeakAboutItMenu)
             }
             .padding(.bottom)
         }
+        .onTapGesture {
+            if showSpeakAboutItMenu {
+                withAnimation {
+                    showSpeakAboutItMenu.toggle()
+                }
+            }
+        }
     }
+}
+
+// Speak About It pop up buttons
+struct SpeakAboutItButtonMenu: View {
+   
+  let widthAndHeight: CGFloat
+   
+  var body: some View {
+    HStack(spacing: 50) {
+      ZStack {
+        Circle()
+          .foregroundColor(Color("SpeakAboutItYellow"))
+          .frame(width: widthAndHeight, height: widthAndHeight)
+        Image(systemName: "plus")
+          .resizable()
+          .aspectRatio(contentMode: .fit)
+          .padding(15)
+          .frame(width: widthAndHeight, height: widthAndHeight)
+          .foregroundColor(.black)
+      }
+      ZStack {
+        Circle()
+          .foregroundColor(Color("SpeakAboutItYellow"))
+          .frame(width: widthAndHeight, height: widthAndHeight)
+        Image(systemName: "checklist")
+          .resizable()
+          .aspectRatio(contentMode: .fit)
+          .padding(15)
+          .frame(width: widthAndHeight, height: widthAndHeight)
+          .foregroundColor(.black)
+      }
+    }
+    .transition(.scale)
+  }
 }
 
 enum TabType: Int, CaseIterable {
