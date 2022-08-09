@@ -18,7 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A56EF645289D021200DC1F00 /* SpeakAboutIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeakAboutIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A56EF645289D021200DC1F00 /* Speak About It.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Speak About It.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A56EF648289D021200DC1F00 /* SpeakAboutItApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakAboutItApp.swift; sourceTree = "<group>"; };
 		A56EF64C289D021400DC1F00 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A56EF64F289D021400DC1F00 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -51,7 +51,7 @@
 		A56EF646289D021200DC1F00 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A56EF645289D021200DC1F00 /* SpeakAboutIt.app */,
+				A56EF645289D021200DC1F00 /* Speak About It.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -104,7 +104,7 @@
 			);
 			name = SpeakAboutIt;
 			productName = SpeakAboutIt;
-			productReference = A56EF645289D021200DC1F00 /* SpeakAboutIt.app */;
+			productReference = A56EF645289D021200DC1F00 /* Speak About It.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -122,7 +122,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A56EF640289D021200DC1F00 /* Build configuration list for PBXProject "SpeakAboutIt" */;
+			buildConfigurationList = A56EF640289D021200DC1F00 /* Build configuration list for PBXProject "Speak About It" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -308,7 +308,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.BrandoFlores.SpeakAboutIt;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Speak About It";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -338,7 +338,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.BrandoFlores.SpeakAboutIt;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Speak About It";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -348,7 +348,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A56EF640289D021200DC1F00 /* Build configuration list for PBXProject "SpeakAboutIt" */ = {
+		A56EF640289D021200DC1F00 /* Build configuration list for PBXProject "Speak About It" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A56EF651289D021400DC1F00 /* Debug */,
