@@ -11,7 +11,8 @@ import SwiftUI
 struct SpeakAboutItApp: App {
     var body: some Scene {
         WindowGroup {
-            TabBarContentView()
+            SplashScreenContentView()
+            //TabBarContentView()
         }
     }
 }
