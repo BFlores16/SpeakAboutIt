@@ -68,7 +68,9 @@ struct TabBarContentView: View {
                         }
                     }
                 }
+                .background(Color("ScreenBackgroundColor").ignoresSafeArea())
             }
+            
         }
     }
 }
@@ -187,36 +189,36 @@ struct TabItemPageView<Content: View>: View {
 
 // Speak About It pop up buttons
 struct SpeakAboutItButtonMenu: View {
-   
-  let widthAndHeight: CGFloat
-   
-  var body: some View {
-    HStack(spacing: 50) {
-      ZStack {
-        Circle()
-          .foregroundColor(Color("SpeakAboutItYellow"))
-          .frame(width: widthAndHeight, height: widthAndHeight)
-        Image(systemName: "plus")
-          .resizable()
-          .aspectRatio(contentMode: .fit)
-          .padding(15)
-          .frame(width: widthAndHeight, height: widthAndHeight)
-          .foregroundColor(.black)
-      }
-      ZStack {
-        Circle()
-          .foregroundColor(Color("SpeakAboutItYellow"))
-          .frame(width: widthAndHeight, height: widthAndHeight)
-        Image(systemName: "checklist")
-          .resizable()
-          .aspectRatio(contentMode: .fit)
-          .padding(15)
-          .frame(width: widthAndHeight, height: widthAndHeight)
-          .foregroundColor(.black)
-      }
+    
+    let widthAndHeight: CGFloat
+    
+    var body: some View {
+        HStack(spacing: 50) {
+            ZStack {
+                Circle()
+                    .foregroundColor(Color("SpeakAboutItYellow"))
+                    .frame(width: widthAndHeight, height: widthAndHeight)
+                Image(systemName: "plus")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .padding(15)
+                    .frame(width: widthAndHeight, height: widthAndHeight)
+                    .foregroundColor(.black)
+            }
+            ZStack {
+                Circle()
+                    .foregroundColor(Color("SpeakAboutItYellow"))
+                    .frame(width: widthAndHeight, height: widthAndHeight)
+                Image(systemName: "checklist")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .padding(15)
+                    .frame(width: widthAndHeight, height: widthAndHeight)
+                    .foregroundColor(.black)
+            }
+        }
+        .transition(.scale)
     }
-    .transition(.scale)
-  }
 }
 
 enum TabType: Int, CaseIterable {
