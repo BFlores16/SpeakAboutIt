@@ -16,13 +16,12 @@ struct HomeContentView: View {
         appearance.backgroundColor = UIColor.init(named: "TabBarBackground")
         UINavigationBar.appearance().standardAppearance = appearance
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
-        
+        UIScrollView.appearance().backgroundColor = UIColor(named: "ScreenBackgroundColor")
     }
     
     var body: some View {
         NavigationView {
-            ZStack {
-                Color("ScreenBackgroundColor").ignoresSafeArea(.container, edges: .bottom)
+            ScrollView {
                 VStack {
                     Button("Show details") {
                         showDetails.toggle()
@@ -33,6 +32,7 @@ struct HomeContentView: View {
                             .font(.largeTitle)
                     }
                 }
+                .frame(maxWidth: .infinity)
                 .navigationBarTitle("", displayMode: .inline)
                 .navigationBarItems(leading:
                                         Button(action: {
@@ -51,6 +51,9 @@ struct HomeContentView: View {
                     }
                 }
                 )
+//                ZStack {
+//
+//                }
             }
         }
     }
