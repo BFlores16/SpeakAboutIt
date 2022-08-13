@@ -9,7 +9,9 @@ import SwiftUI
 
 struct HomeContentView: View {
     @State private var showDetails = false
-    var colors: [Color] = [.blue, .green, .red, .orange]
+    @State private var showRegisterBanner = false
+    @Environment(\.colorScheme) var appColorMode: ColorScheme
+    let screenWidth = UIScreen.main.bounds.width
     var myEventsImages: [Image] = [Image("event-example-3").resizable(), Image("event-example-1").resizable(), Image("event-example-2").resizable()]
     
     init() {
@@ -24,6 +26,80 @@ struct HomeContentView: View {
     var body: some View {
         NavigationView {
             ScrollView {
+                
+                //if showRegisterBanner {
+                    // Register / signup banner
+                    ZStack {
+                        Rectangle()
+                            .foregroundColor(Color("TabBarBackground"))
+                            .cornerRadius(10)
+                            .shadow(radius: 2)
+                        Image(appColorMode == .light ? "Logo" : "Logo-White")
+                            .resizable()
+                            .frame(width: 350, height: 180, alignment: .center)
+                            .opacity(0.03)
+                        VStack {
+                            HStack {
+                                Spacer()
+                                Button(action: {
+                                    withAnimation {
+                                        showRegisterBanner.toggle()
+                                    }
+                                }) {
+                                    ZStack {
+                                        Circle()
+                                            .foregroundColor(Color.black)
+                                            .frame(width: 20, height: 20)
+                                        
+                                        Image(systemName: "x.circle.fill").imageScale(.large).foregroundColor(Color("SpeakAboutItYellow"))
+                                    }
+                                }
+                                .padding([.trailing, .top], 5.0)
+                            }
+                            Spacer()
+                            Text("Discuss some of the most divisive issues of our time.")
+                                .multilineTextAlignment(.center)
+                                .font(.system(size: 20, weight: .bold))
+                            Text("Sign in or register to attend events")
+                                .multilineTextAlignment(.center)
+                            HStack(spacing: 40) {
+                                Button(action: {
+                                    print("Account register clicked")
+                                }) {
+                                    ZStack {
+                                        Rectangle()
+                                            .frame(width: 100, height: 40, alignment: .center)
+                                            .foregroundColor(Color("SpeakAboutItYellow"))
+                                            .cornerRadius(6)
+                                        Text("Register")
+                                            .font(.system(size: 20, weight: .bold))
+                                            .foregroundColor(Color.black)
+                                    }
+                                }
+                                Button(action: {
+                                    print("Account login clicked")
+                                }) {
+                                    ZStack {
+                                        Rectangle()
+                                            .frame(width: 100, height: 40, alignment: .center)
+                                            .foregroundColor(Color.black)
+                                            .cornerRadius(6)
+                                        Text("Log In")
+                                            .font(.system(size: 20, weight: .bold))
+                                            .foregroundColor(Color.white)
+                                    }
+                                }
+                            }
+                            Spacer()
+                        }
+                        .frame(width: screenWidth - 40, height: 200, alignment: .center)
+                    }
+                    .frame(width: screenWidth - 40, height: 200, alignment: .center)
+                    .padding()
+                    .HideView(showRegisterBanner, remove: true)
+                //}
+                
+                // My Events scroller
                 VStack {
                     VStack {
                         Text("My Events")
@@ -61,6 +137,8 @@ struct HomeContentView: View {
                     }
                 }
                 )
+                
+                // Explore scroller
                 VStack {
                     HStack {
                         Image(systemName: "safari")
