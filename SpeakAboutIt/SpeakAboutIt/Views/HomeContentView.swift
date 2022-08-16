@@ -26,7 +26,7 @@ struct HomeContentView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-        
+                
                 // Register / signup banner
                 ZStack {
                     Rectangle()
@@ -117,24 +117,6 @@ struct HomeContentView: View {
                 }
                 .padding()
                 .frame(maxWidth: .infinity)
-                .navigationBarTitle("", displayMode: .inline)
-                .navigationBarItems(leading:
-                                        Button(action: {
-                    print("Account button pressed")
-                }) {
-                    ZStack {
-                        Circle()
-                            .foregroundColor(Color.black)
-                        Image(systemName: "person.circle.fill").imageScale(.large).foregroundColor(Color("SpeakAboutItYellow"))
-                    }
-                }, trailing: Button(action: {
-                    print("Account button pressed")
-                }) {
-                    ZStack {
-                        Image(systemName: "bell.fill").imageScale(.large).foregroundColor(Color("SpeakAboutItYellow"))
-                    }
-                }
-                )
                 
                 // Explore scroller
                 VStack {
@@ -188,6 +170,41 @@ struct HomeContentView: View {
                 Rectangle()
                     .frame(width: screenWidth, height: UIScreen.main.bounds.height * 0.1, alignment: .center)
                     .hidden()
+                
+                // Navigation Bar Items
+                Text("")
+                    .navigationBarTitleDisplayMode(.inline)
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarLeading) {
+                            Button(action: {
+                                print("Account button pressed")
+                            }) {
+                                ZStack {
+                                    Circle()
+                                        .foregroundColor(Color.black)
+                                    Image(systemName: "person.circle.fill").imageScale(.large).foregroundColor(Color("SpeakAboutItYellow"))
+                                }
+                            }
+                        }
+                        ToolbarItem(placement: .principal) {
+                            HStack {
+                                Image(appColorMode == .light ? "Logo-Text-Black" : "Logo-Text-White")
+                                    .resizable()
+                                    .frame(width: 50, height: 30, alignment: .center)
+                            }
+                        }
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            HStack {
+                                Button(action: {
+                                    print("Account button pressed")
+                                }) {
+                                    ZStack {
+                                        Image(systemName: "bell.fill").imageScale(.large).foregroundColor(Color("SpeakAboutItYellow"))
+                                    }
+                                }
+                            }
+                        }
+                    }
             }
         }
     }
