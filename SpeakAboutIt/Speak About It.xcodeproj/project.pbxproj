@@ -10,6 +10,7 @@
 		A544BA3C28A34E3B00855A61 /* SplashScreenContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A544BA3B28A34E3B00855A61 /* SplashScreenContentView.swift */; };
 		A544BA3E28A5C28B00855A61 /* ScrollingHStackModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A544BA3D28A5C28B00855A61 /* ScrollingHStackModifier.swift */; };
 		A544BA4028A709D800855A61 /* HideViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A544BA3F28A709D700855A61 /* HideViewModifier.swift */; };
+		A544BA4228A7508000855A61 /* AccountContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A544BA4128A7508000855A61 /* AccountContentView.swift */; };
 		A56EF649289D021200DC1F00 /* SpeakAboutItApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56EF648289D021200DC1F00 /* SpeakAboutItApp.swift */; };
 		A56EF64D289D021400DC1F00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A56EF64C289D021400DC1F00 /* Assets.xcassets */; };
 		A56EF650289D021400DC1F00 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A56EF64F289D021400DC1F00 /* Preview Assets.xcassets */; };
@@ -24,6 +25,7 @@
 		A544BA3B28A34E3B00855A61 /* SplashScreenContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenContentView.swift; sourceTree = "<group>"; };
 		A544BA3D28A5C28B00855A61 /* ScrollingHStackModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollingHStackModifier.swift; sourceTree = "<group>"; };
 		A544BA3F28A709D700855A61 /* HideViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideViewModifier.swift; sourceTree = "<group>"; };
+		A544BA4128A7508000855A61 /* AccountContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountContentView.swift; sourceTree = "<group>"; };
 		A56EF645289D021200DC1F00 /* Speak About It.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Speak About It.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A56EF648289D021200DC1F00 /* SpeakAboutItApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakAboutItApp.swift; sourceTree = "<group>"; };
 		A56EF64C289D021400DC1F00 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				A5D29DCF28A1BFCC00FDC7E6 /* DiscussContentView.swift */,
 				A5D29DD128A1BFDE00FDC7E6 /* MoreContentView.swift */,
 				A544BA3B28A34E3B00855A61 /* SplashScreenContentView.swift */,
+				A544BA4128A7508000855A61 /* AccountContentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -170,6 +173,7 @@
 				A5D29DCC28A1BFAB00FDC7E6 /* HomeContentView.swift in Sources */,
 				A58AD93D289E6443002005F2 /* TabBarContentView.swift in Sources */,
 				A544BA3E28A5C28B00855A61 /* ScrollingHStackModifier.swift in Sources */,
+				A544BA4228A7508000855A61 /* AccountContentView.swift in Sources */,
 				A544BA4028A709D800855A61 /* HideViewModifier.swift in Sources */,
 				A56EF649289D021200DC1F00 /* SpeakAboutItApp.swift in Sources */,
 				A5D29DCE28A1BFC400FDC7E6 /* ExploreContentView.swift in Sources */,
